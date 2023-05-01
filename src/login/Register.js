@@ -13,9 +13,12 @@ function Register(){
     const [displayName, setDisplay]=useState('');
     const [displayError1, setDisplayError1]=useState('');
     const [displayError2, setDisplayError2]=useState('');
+    const [chooseImage,setImage]=useState('');
 
 
-
+    const handleImage =(event) => {
+        setImage(event.target.files[0]);
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
         let validSubmission=1;
@@ -119,11 +122,11 @@ function Register(){
                     </div>
                 </div>
                 <div className="form-group">
-                    <input type="file" className="form-control-file" id="exampleFormControlFile1" />
+                    <input type="file" className="form-control-file" id="exampleFormControlFile1" onChange={handleImage} />
                 </div>
                 <div className="form-group">
                     Selected Image:
-                    <img src={profilePic} alt="Profile Picture" className="text-center" width="50px" height="50px" />
+                    {chooseImage && <img src={URL.createObjectURL(chooseImage)} alt="Profile Picture" className="text-center marginLeft1" id="chooseImg" ></img>}
                 </div>
                 <div className="text-center">
                     <button type="submit" className="btn btn-info marginRight ">Register</button>
