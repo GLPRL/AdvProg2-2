@@ -1,4 +1,4 @@
-# ChatApp Pt.Ib
+# ChatApp Pt.I,b
 
 Graphical interface for our web application.
 
