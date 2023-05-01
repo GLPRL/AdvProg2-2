@@ -5,8 +5,9 @@ import monkeyprofilepic from "./monkeyprofilepic.jpg";
 function ChatWindow() {
     return(
         <>
+        <body>
             <button className="btn-sm btn-danger logoutbutton text"> Logout</button>
-            <div className="container-fluid content row no-gutters text">
+            <div className="container content row no-gutters text">
                 <div className="contactBox  col-sm-4">
                     <div className="userTab">
                         <img src={ profilepic4 } alt="" className="user-tab-left-image rounded-circle"></img>
@@ -155,6 +156,7 @@ function ChatWindow() {
                     </div>
                 </div>
             </div>
+        </body>
         </>
     )
 }
