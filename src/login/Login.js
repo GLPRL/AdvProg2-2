@@ -1,8 +1,24 @@
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
 import Register from './Register'; // Import the Register component
+import { useRef } from "react";
+import {registerData} from './Register'
+
 
 function Login(){
+
+    const usernameRef = useRef(null);
+    const passwordRef = useRef(null);
+
+    const handleSubmit = (event) => {
+        event.preventDefault(); // prevent the default form submission behavior
+
+        const username = usernameRef.current.value;
+        const password = passwordRef.current.value;
+
+        // perform login action with username and password
+    };
+
     return(
 
         <>
@@ -17,23 +33,26 @@ function Login(){
                             <title>Hello, world!</title>
             </head>
             <body>
+
+
+
         <div className="center logreg">
             <div className="login">
                 <h1 className="margin5 text">Sign-in</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="form-group text">
                         <label htmlFor="username">Username</label>
                         <div className="place">
-                            <input type="email" className="form-control" id="username" placeholder="Enter username"></input>
+                            <input  className="form-control" id="username" placeholder="Enter username"   ref={usernameRef}></input>
                         </div>
                     </div>
                     <div className="form-group text">
                         <label htmlFor="password">Password</label>
                         <div className="place">
-                            <input type="password" className="form-control" id="password" placeholder="Enter password"></input>
+                            <input type="password" className="form-control" id="password" placeholder="Enter password"  ref={passwordRef}></input>
                         </div>
                     </div>
-                    <button className="btn btn-info  text margin5">Log in</button>     <Link to="/register" className="btn btn-dark text" role="button">Sign Up</Link>
+                    <button type="submit" className="btn btn-info  text margin5">Log in</button>     <Link to="/register" className="btn btn-dark text" role="button">Sign Up</Link>
 
 
                 </form>

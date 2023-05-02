@@ -1,8 +1,11 @@
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes  } from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 import React, { useState } from 'react';
 import profilePic from '../images/profilePic3.jpg';
 import Login from './Login'
+export const registerData = {username :'',password:'',displayName:'',image:''}
 function Register(){
+
     const [password, setPassword] = useState('');
     const [passwordError1, setPasswordError1] = useState('');
     const [passwordError2, setPasswordError2] = useState('');
@@ -14,14 +17,14 @@ function Register(){
     const [displayError1, setDisplayError1]=useState('');
     const [displayError2, setDisplayError2]=useState('');
     const [chooseImage,setImage]=useState('');
-
-
+    const [shouldNavigate, setShouldNavigate] = useState(false);
     const handleImage =(event) => {
         setImage(event.target.files[0]);
     }
     const handleSubmit = (event) => {
         event.preventDefault();
         let validSubmission=1;
+
         if(password)
         if (password.length < 8) {
             setPasswordError1('Password must be at least 8 characters long.');
@@ -48,8 +51,15 @@ function Register(){
             validSubmission =0;
         }
             if (validSubmission) {
-            // Handle form submission here
-        }
+
+            registerData.username=username;
+            registerData.password=password;
+            registerData.displayName=displayName;
+            registerData.image=chooseImage;
+            setShouldNavigate(true);
+
+
+            }
     };
 
     const handlePasswordChange = (event) => {
@@ -87,6 +97,7 @@ function Register(){
     <div className="center register text" >
         <div className="login">
             <h1 className="margin5 text">Register</h1>
+            {shouldNavigate && <Navigate to="/" />}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="username">Username</label>
@@ -129,7 +140,7 @@ function Register(){
                     {chooseImage && <img src={URL.createObjectURL(chooseImage)} alt="Profile Picture" className="text-center marginLeft1" id="chooseImg" ></img>}
                 </div>
                 <div className="text-center">
-                    <button type="submit" className="btn btn-info marginRight ">Register</button>
+                        <button type="submit" className="btn btn-info marginRight">Register</button>
                     <span className="txtsize"> Already registered? click <Link to="/" className="orangelink">here</Link></span>
                 </div>
             </form>
