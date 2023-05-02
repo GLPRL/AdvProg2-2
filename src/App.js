@@ -1,7 +1,7 @@
 import './App.css';
-import './chatWindow.css';
+import './ChatWindow/chatWindow.css';
 
-import ChatWindow from "./ChatWindow";
+import ChatWindow from "./ChatWindow/ChatWindow";
 function App() {
   return (
       <ChatWindow />
