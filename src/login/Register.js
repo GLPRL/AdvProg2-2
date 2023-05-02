@@ -46,7 +46,7 @@ function Register(){
             setDisplayError1('2-16 in len');
             validSubmission=0;
         }
-        if(!/^[a-zA-Z]+$/.test(displayName)){
+        if(!/^[a-zA-Z\s]+$/.test(displayName)){
            setDisplayError2('must be only letters') ;
             validSubmission =0;
         }
@@ -140,12 +140,12 @@ function Register(){
                     </div>
                 </div>
                 <div className="form-group">
-                    <input type="file" className="form-control-file" id="exampleFormControlFile1" onChange={handleImage} />
+                    <small>Choose profile picture</small><input type="file" className="form-control-file" id="exampleFormControlFile1" onChange={handleImage} />
                     {imageError && <small className="form-text text-danger">{imageError}</small> }
                 </div>
                 <div className="form-group">
-                    Selected Image:
-                    {chooseImage && <img src={URL.createObjectURL(chooseImage)} alt="Profile Picture" className="text-center marginLeft1" id="chooseImg" ></img>}
+
+                    {chooseImage &&  <div>Selected Image: <img src={URL.createObjectURL(chooseImage)} alt="Profile Picture" className="text-center marginLeft1" id="chooseImg" ></img></div>}
                 </div>
                 <div className="text-center">
                         <button type="submit" className="btn btn-info marginRight">Register</button>
