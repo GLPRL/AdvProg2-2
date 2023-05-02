@@ -1,13 +1,12 @@
-import LogoutButton from "../LogoutButton/LogoutButton";
 import AddContactModal from "../AddContactModal/AddContactModal";
 import ChatApp from "../ChatApp/ChatApp";
 
 function ChatWindow() {
     return(
         <>
-        <LogoutButton />
+            <button className="btn-sm btn-danger logoutbutton text"> Logout</button>
             <ChatApp />
-        <AddContactModal />
+            <AddContactModal />
         </>
     )
 }
