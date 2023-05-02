@@ -17,10 +17,10 @@ function Register(){
     const [displayError1, setDisplayError1]=useState('');
     const [displayError2, setDisplayError2]=useState('');
     const [chooseImage,setImage]=useState('');
+    const [imageError, setImageError]=useState('');
     const [shouldNavigate, setShouldNavigate] = useState(false);
-    const handleImage =(event) => {
-        setImage(event.target.files[0]);
-    }
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
         let validSubmission=1;
@@ -50,6 +50,10 @@ function Register(){
            setDisplayError2('must be only letters') ;
             validSubmission =0;
         }
+        if(!chooseImage){
+            setImageError('No image chosen');
+            validSubmission =0;
+        }
             if (validSubmission) {
 
             registerData.username=username;
@@ -61,7 +65,10 @@ function Register(){
 
             }
     };
-
+    const handleImage =(event) => {
+        setImage(event.target.files[0]);
+        setImageError('');
+    }
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
         setPasswordError1('');
@@ -134,6 +141,7 @@ function Register(){
                 </div>
                 <div className="form-group">
                     <input type="file" className="form-control-file" id="exampleFormControlFile1" onChange={handleImage} />
+                    {imageError && <small className="form-text text-danger">{imageError}</small> }
                 </div>
                 <div className="form-group">
                     Selected Image:
