@@ -18,7 +18,7 @@
 
 .messagesWindow {
     height: 84%;
-    background-image: url('../Screenshot_4.jpg');
+    background-image: url('Screenshot_4.jpg');
     background-size: 70%;
     border-radius: 5px;
 }
@@ -160,7 +160,7 @@
     font-family: optima, sans-serif;
 }
 body{
-    background-image: url("../background.jpg");
+    background-image: url("background.jpg");
 }
 
 
@@ -179,7 +179,7 @@ body{
     overflow-y: scroll;
 
     height: 84%;
-    background-image: url('../Screenshot_4.jpg');
+    background-image: url('Screenshot_4.jpg');
     background-size: 70%;
 }
 .sendLine{
