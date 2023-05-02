@@ -1,7 +1,7 @@
 import profilePic3 from '../../../../profilePic3.jpg'
 import ContactItem from '../ContactItem/ContactItem';
 import monkeyPic from '../../../../monkeyprofilepic.jpg'
-
+/* Fetch usernames pics and dates */
 function ContactsList() {
     return(
         <>
