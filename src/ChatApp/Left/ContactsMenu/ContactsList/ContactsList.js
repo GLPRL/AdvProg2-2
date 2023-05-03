@@ -12,17 +12,16 @@ import '../../../../chatWindow.css'
 function ContactsList() {
     
         const allContacts = contacts.map(contact => 
-            <li key={contact.id} className='contacts'>
+            
             <tr className="table-info">
                 <td><img src={ profilePic3 } alt="" className="chat-profile-image rounded-circle"></img></td>
                 <td>{contact.name}</td>
                 <td><small>some date</small></td>
             </tr>
-            </li>
             );
 
         return(
-        <ul className='contactUl'>{allContacts}</ul>
+            <tbody>{allContacts}</tbody>
         )
 }
 export default ContactsList;
