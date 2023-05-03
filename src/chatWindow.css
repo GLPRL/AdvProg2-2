@@ -92,6 +92,11 @@
 .contacts:hover{
     background-color: rgb(255, 199, 146);
 }
+
+.contactUl{
+    list-style-type: none;
+}
+
 .dateTime{
     margin-right: 8%;
     margin-top: 7%;
