@@ -63,3 +63,6 @@ body{
 .marginLeft1{
     margin-left: 1%;
 }
+.modalRegister{
+    display: block !important;
+}

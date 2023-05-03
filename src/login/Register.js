@@ -3,7 +3,7 @@ import {Navigate} from 'react-router-dom';
 import React, { useState } from 'react';
 import profilePic from '../images/profilePic3.jpg';
 import Login from './Login'
-export const registerData = {username :'',password:'',displayName:'',image:''}
+export const registerData = {username :'',password:'',displayName:'',image:'',validRegister: false}
 function Register(){
 
     const [password, setPassword] = useState('');
@@ -19,13 +19,16 @@ function Register(){
     const [chooseImage,setImage]=useState('');
     const [imageError, setImageError]=useState('');
     const [shouldNavigate, setShouldNavigate] = useState(false);
+    const [showPopup, setShowPopup] = useState(true);
+    const [popupClosed,setPopupClosed]=useState(false)
 
-
+    function handlePopupClose() {
+        setPopupClosed(true);
+        setShowPopup(false);
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
         let validSubmission=1;
-
-        if(password)
         if (password.length < 8) {
             setPasswordError1('Password must be at least 8 characters long.');
             validSubmission=0;
@@ -60,6 +63,7 @@ function Register(){
             registerData.password=password;
             registerData.displayName=displayName;
             registerData.image=chooseImage;
+            registerData.validRegister=true;
             setShouldNavigate(true);
 
 
@@ -89,13 +93,49 @@ function Register(){
         setDisplayError1('');
         setDisplayError2('');
     }
+    if(shouldNavigate){
+        return(
+            <>
+                <head>
+                    <link rel="stylesheet"
+                          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+                          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                          crossOrigin="anonymous"></link>
+                </head>
+                <body>
+                {showPopup && (
+                    <div
+                        className="modal show modalRegister"
+                        tabIndex="-1"
+                        role="dialog"
+                    >
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title">You have successfully registered!</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={handlePopupClose}><span aria-hidden="true">&times;</span></button>
+                                </div>
+                                <div className="modal-body">
+                                    <p>Press the continue button in order to get to log-in page</p>
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-info" data-dismiss="modal" onClick={handlePopupClose}>Continue</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+        {popupClosed && <Navigate to="/" />}
 
+                </body>
+            </>
+        );
+    }
  return(
 
 <>
 
      <head>
-         <link href="stylesheets/login.css" rel="stylesheet"></link>
          <title>Hello, world!</title>
              <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
@@ -104,7 +144,6 @@ function Register(){
     <div className="center register text" >
         <div className="login">
             <h1 className="margin5 text">Register</h1>
-            {shouldNavigate && <Navigate to="/" />}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="username">Username</label>

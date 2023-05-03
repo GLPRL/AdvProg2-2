@@ -1,30 +1,55 @@
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
 import Register from './Register'; // Import the Register component
-import { useRef } from "react";
+import {useRef, useState} from "react";
 import {registerData} from './Register'
-
-
+export var isLoggedIn = false;
 function Login(){
-
     const usernameRef = useRef(null);
     const passwordRef = useRef(null);
-
+    const passwordError = useRef (null);
+    const usernameError = useRef(null);
+    const [shouldNavigate, setShouldNavigate] = useState(false);
+    isLoggedIn=false;
     const handleSubmit = (event) => {
         event.preventDefault(); // prevent the default form submission behavior
-
+        let validLogin = true;
         const username = usernameRef.current.value;
         const password = passwordRef.current.value;
+        if(!registerData.validRegister){
+            passwordError.current.textContent='Wrong password';
+            usernameError.current.textContent='Wrong username';
+        }
+        else{
+            if(username != registerData.username){
+                usernameError.current.textContent='Wrong username';
+                validLogin = false;
+            }
+            if(password != registerData.password){
+                passwordError.current.textContent='Wrong password';
+                validLogin = false;
+            }
+            if(validLogin){
+            setShouldNavigate(true);
+            isLoggedIn = true;
+            }
+        }
 
         // perform login action with username and password
     };
+    const handlePasswordChange =(event) =>{
+        passwordError.current.textContent='';
+    }
+    const handleUsernameChange = (event) => {
+        usernameError.current.textContent='';
+    }
+
 
     return(
 
         <>
 
             <head>
-                <link href="stylesheets/login.css" rel="stylesheet"></link>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
                         <link rel="stylesheet"
                               href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -43,13 +68,15 @@ function Login(){
                     <div className="form-group text">
                         <label htmlFor="username">Username</label>
                         <div className="place">
-                            <input  className="form-control" id="username" placeholder="Enter username"   ref={usernameRef}></input>
+                            <input  className="form-control" id="username" placeholder="Enter username"  onChange={handleUsernameChange}  ref={usernameRef}></input>
+                            <small className="text-danger" ref={usernameError}></small>
                         </div>
                     </div>
                     <div className="form-group text">
                         <label htmlFor="password">Password</label>
                         <div className="place">
-                            <input type="password" className="form-control" id="password" placeholder="Enter password"  ref={passwordRef}></input>
+                            <input type="password" className="form-control" id="password" placeholder="Enter password" onChange={handlePasswordChange} ref={passwordRef}></input>
+                            <small className="text-danger" ref={passwordError}></small>
                         </div>
                     </div>
                     <button type="submit" className="btn btn-info  text margin5">Log in</button>     <Link to="/register" className="btn btn-dark text" role="button">Sign Up</Link>
