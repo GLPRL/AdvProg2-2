@@ -44,8 +44,10 @@ function Login(){
     const handleUsernameChange = (event) => {
         usernameError.current.textContent='';
     }
-    if(isLoggedIn) {
-        return <ChatWindow />
+    if(shouldNavigate) {
+        return(
+            <ChatWindow />
+        )
     }
 
     return(
