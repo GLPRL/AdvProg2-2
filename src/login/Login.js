@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Register from './Register'; // Import the Register component
 import {useRef, useState} from "react";
 import {registerData} from './Register'
+import ChatWindow from "../ChatWindow";
 export var isLoggedIn = false;
 function Login(){
     const usernameRef = useRef(null);
@@ -43,7 +44,9 @@ function Login(){
     const handleUsernameChange = (event) => {
         usernameError.current.textContent='';
     }
-
+    if(isLoggedIn) {
+        return <ChatWindow />
+    }
 
     return(
 
