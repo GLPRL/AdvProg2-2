@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Register from './Register'; // Import the Register component
 import {useRef, useState} from "react";
 import {registerData} from './Register'
-import ChatWindow from "../ChatWindow";
+import ChatWindow from "../ChatWindow/ChatWindow";
 export var isLoggedIn = false;
 function Login(){
     const usernameRef = useRef(null);
