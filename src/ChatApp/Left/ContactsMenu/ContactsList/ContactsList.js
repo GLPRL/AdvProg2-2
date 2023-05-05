@@ -1,7 +1,9 @@
 import profilePic3 from '../../../../profilePic3.jpg'
 import monkeyPic from '../../../../monkeyprofilepic.jpg'
 import contacts from '../../../../contactList';
+import usersData from '../../../../usersData.js'
 import '../../../../chatWindow.css'
+import Contact from './Contact';
 
 
 
@@ -9,13 +11,11 @@ import '../../../../chatWindow.css'
 
 /* Fetch usernames pics and dates */
 function ContactsList() { 
-        const allContacts = contacts.map(contact =>
+        const allContacts = usersData.map((contact, key) =>
             
-            <tr className="table-info">
-                <td><img src={ profilePic3 } alt="" className="chat-profile-image rounded-circle"></img></td>
-                <td>{contact.name}</td>
-                <td><small>some date</small></td>
-            </tr>
+            <>
+                <Contact name={contact.name} uname={contact.username} key={key}></Contact>
+            </>
             );
 
         return(

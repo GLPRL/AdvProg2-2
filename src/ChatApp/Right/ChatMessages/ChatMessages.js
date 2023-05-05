@@ -2,8 +2,8 @@ import ChatMessage from "./ChatMessage";
 import messages from "./messagesList";
 
 function ChatMessages() {
-    const messsageConvo = messages.map(message =>
-        <ChatMessage msg={message.text} floatValue={message.floatValue}></ChatMessage>
+    const messsageConvo = messages.map((message,key) =>
+        <ChatMessage msg={message.text} floatValue={message.floatValue} key={key}></ChatMessage>
         );
 
 
