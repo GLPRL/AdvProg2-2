@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link, Routes, Navigate} from 'react-router-dom';
 
 import Register from './Register'; // Import the Register component
 import {useRef, useState} from "react";
@@ -45,9 +45,7 @@ function Login(){
         usernameError.current.textContent='';
     }
     if(shouldNavigate) {
-        return(
-            <ChatWindow />
-        )
+        return(<Navigate to="/chat" />)
     }
 
     return(
