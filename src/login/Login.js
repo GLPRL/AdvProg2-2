@@ -1,9 +1,6 @@
-import {BrowserRouter as Router, Route, Link, Routes, Navigate} from 'react-router-dom';
-
-import Register from './Register'; // Import the Register component
+import {Link, Navigate} from 'react-router-dom';
 import {useRef, useState} from "react";
 import {registerData} from './Register'
-import ChatWindow from "../ChatWindow/ChatWindow";
 export const isLoggedIn =  {value: false};
 function Login(){
     const usernameRef = useRef(null);

@@ -1,8 +1,7 @@
-import { BrowserRouter as Router, Route, Link, Routes  } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {Navigate} from 'react-router-dom';
 import React, { useState } from 'react';
-import profilePic from '../images/profilePic3.jpg';
-import Login, {isLoggedIn} from './Login'
+import {isLoggedIn} from './Login'
 export const registerData = [];
 function Register(){
 
