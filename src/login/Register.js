@@ -3,7 +3,7 @@ import {Navigate} from 'react-router-dom';
 import React, { useState } from 'react';
 import profilePic from '../images/profilePic3.jpg';
 import Login from './Login'
-export const registerData = {username :'',password:'',displayName:'',image:'',validRegister: false}
+export const registerData = [];
 function Register(){
 
     const [password, setPassword] = useState('');

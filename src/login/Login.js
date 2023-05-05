@@ -4,14 +4,13 @@ import Register from './Register'; // Import the Register component
 import {useRef, useState} from "react";
 import {registerData} from './Register'
 import ChatWindow from "../ChatWindow/ChatWindow";
-export var isLoggedIn = false;
+export const isLoggedIn =  {value: false};
 function Login(){
     const usernameRef = useRef(null);
     const passwordRef = useRef(null);
     const passwordError = useRef (null);
     const usernameError = useRef(null);
     const [shouldNavigate, setShouldNavigate] = useState(false);
-    isLoggedIn=false;
     const handleSubmit = (event) => {
         event.preventDefault(); // prevent the default form submission behavior
         let validLogin = true;
@@ -31,8 +30,9 @@ function Login(){
                 validLogin = false;
             }
             if(validLogin){
-            setShouldNavigate(true);
-            isLoggedIn = true;
+                isLoggedIn.value = true;
+                setShouldNavigate(true);
+                console.log(isLoggedIn);
             }
         }
 
