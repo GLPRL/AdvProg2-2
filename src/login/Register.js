@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Link, Routes  } from 'react-router-dom'
 import {Navigate} from 'react-router-dom';
 import React, { useState } from 'react';
 import profilePic from '../images/profilePic3.jpg';
-import Login from './Login'
+import Login, {isLoggedIn} from './Login'
 export const registerData = [];
 function Register(){
 
@@ -93,6 +93,7 @@ function Register(){
         setDisplayError1('');
         setDisplayError2('');
     }
+    isLoggedIn.value = false;
     if(shouldNavigate){
         return(
             <>

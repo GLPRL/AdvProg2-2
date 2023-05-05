@@ -32,7 +32,6 @@ function Login(){
             if(validLogin){
                 isLoggedIn.value = true;
                 setShouldNavigate(true);
-                console.log(isLoggedIn);
             }
         }
 
@@ -47,9 +46,8 @@ function Login(){
     if(shouldNavigate) {
         return(<Navigate to="/chat" />)
     }
-
+    isLoggedIn.value = false;
     return(
-
         <>
 
             <head>
