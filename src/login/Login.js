@@ -1,7 +1,7 @@
 import {Link, Navigate} from 'react-router-dom';
 import {useRef, useState} from "react";
 import {registerData} from './Register'
-export const isLoggedIn =  {value: false};
+export const isLoggedIn = {value: false};
 function Login(){
     const usernameRef = useRef(null);
     const passwordRef = useRef(null);
