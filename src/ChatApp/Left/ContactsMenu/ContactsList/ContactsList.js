@@ -14,7 +14,7 @@ function ContactsList() {
         const allContacts = usersData.map((contact, key) =>
             
             <>
-                <Contact name={contact.name} uname={contact.username} key={key}></Contact>
+                <Contact name={contact.name} id={contact.id} key={key}></Contact>
             </>
             );
 

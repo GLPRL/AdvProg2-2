@@ -1,25 +1,26 @@
 import profilePic3 from '../../../../profilePic3.jpg'
 import { useState } from 'react';
-function Contact({name}, {username}) {
+
+
+function Contact(props) {
 
 
     const [clientUsername, setClientUsername] = useState('');
 
     function handleContactClick() {
-        setClientUsername({username})
-        console.log("got clicked by " + {clientUsername});
-    }   
+        console.log("logged" + props.id)
+    }
 
 
-    const contact = 
+    const contact =
     <>
         <td><img src={ profilePic3 } alt="" className="chat-profile-image rounded-circle"></img></td>
-        <td>{name}</td>
-        <td><small>some date</small></td>
+        <td>{props.name}</td>
+        <td><small>{props.id}</small></td>
     </>
 
     return (
-        <tr className="table-info" onClick={handleContactClick}>
+        <tr className="table-info" onClick={()=>handleContactClick(props.id)}>
         {contact}
         </tr>
     )

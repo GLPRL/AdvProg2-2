@@ -3,7 +3,7 @@ import Contact from "./ChatApp/Left/ContactsMenu/ContactsList/Contact";
 
 const usersData = [
     {
-        username: 'user1',
+        id: 1,
         name:"contact five",
         messages : [
             {text:"a message one" ,floatValue:"float-right"},
@@ -20,7 +20,7 @@ const usersData = [
             {text:"a mesasdasdsage dsfsd" ,floatValue:"float-right"}]
     },
     {
-        username: 'user2',
+        id: 2,
         name:"contact 2",
         messages : [
             {text:"a message one" ,floatValue:"float-right"},
