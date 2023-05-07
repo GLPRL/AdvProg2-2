@@ -1,4 +1,3 @@
-
 import ContactsList from "./ContactsList/ContactsList";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -12,4 +11,5 @@ function ContactsMenu(props) {
         </div>
     );
 }
+
 export default ContactsMenu;

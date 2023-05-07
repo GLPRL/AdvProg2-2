@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Route, Link, Routes  } from 'react-router-dom';
 import {Navigate} from 'react-router-dom';
 import React, { useState } from 'react';
@@ -113,7 +114,26 @@ function Register(){
                 </head>
                 <body>
                 {showPopup && (
-                   <RegisterModal onClose={handlePopupClose}></RegisterModal>
+                    <div
+                        className="modal show modalRegister"
+                        tabIndex="-1"
+                        role="dialog"
+                    >
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title">You have successfully registered!</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={handlePopupClose}><span aria-hidden="true">&times;</span></button>
+                                </div>
+                                <div className="modal-body">
+                                    <p>Press the continue button in order to get to log-in page</p>
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-info" data-dismiss="modal" onClick={handlePopupClose}>Continue</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 )}
         {popupClosed && <Navigate to="/" />}
 
@@ -130,14 +150,43 @@ function Register(){
              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
      </head>
     <body>
-    <div className="center register text">
+    <div className="center register text" >
         <div className="login">
             <h1 className="margin5 text">Register</h1>
             <form onSubmit={handleSubmit}>
-                <FormGroupRegister label="Username" type="text" id="username" placeholder="Enter Username" value={username} onChange={handleUsername} error1={usernameError} error2={usernameError2} smallText="Must be 2-16 characters" />
-                <FormGroupRegister label="Password" type="password" id="password" placeholder="Enter Password" value={password} onChange={handlePasswordChange} error1={passwordError1} error2={passwordError2} smallText="Your password must be at least 8 characters long and contain at least one number and letter " />
-                <FormGroupRegister label="Verify Password" type="password" id="password-verify" placeholder="Verify Password" value={verifyPassword} onChange={handleVerify} error1={verifyError1} />
-                <FormGroupRegister label="Display Name" type="text" id="DisplayName" placeholder="Enter Display Name" value={displayName} onChange={handleDisplay} error1={displayError1}  error2={displayError2} smallText="Only letters 2-16 in length" />
+                <div className="form-group">
+                    <label htmlFor="username">Username</label>
+                    <div className="placeregister">
+                        <input  className="form-control"  id="username" placeholder="Enter Username" value={username} onChange={handleUsername} />
+                        <small>Must be 2-16 characters</small>
+                        {usernameError && <small className="form-text text-danger">{usernameError}</small> }
+                    </div>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <div className="placeregister">
+                        <input type="password" className="form-control" id="password" placeholder="Enter Password" value={password} onChange={handlePasswordChange} />
+                        <small>Your password must be at least 8 characters long and contain at least one number and letter </small>
+                        {passwordError1 && <small className="form-text text-danger">{passwordError1}</small>}
+                        {passwordError2 && <small className="form-text text-danger">{passwordError2}</small>}
+                    </div>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Verify Password</label>
+                    <div className="placeregister">
+                        <input type="password" className="form-control" id="password-verify" placeholder="Verify Password" value={verifyPassword} onChange={handleVerify} />
+                        {verifyError1 && <small className="form-text text-danger">{verifyError1}</small> }
+                    </div>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="DisplayName">Display Name</label>
+                    <div className="placeregister">
+                        <input  className="form-control"  id="DisplayName" placeholder="Enter Display Name" value={displayName} onChange={handleDisplay} />
+                        <small>Only letters 2-16 in length</small>
+                        {displayError1 && <small className="form-text text-danger">{displayError1}</small> }
+                        {displayError2 && <small className="form-text text-danger">{displayError2}</small> }
+                    </div>
+                </div>
                 <div className="form-group">
                     <small>Choose profile picture</small><input type="file" className="form-control-file" id="exampleFormControlFile1" onChange={handleImage} />
                     {imageError && <small className="form-text text-danger">{imageError}</small> }

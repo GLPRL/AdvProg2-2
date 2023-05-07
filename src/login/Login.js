@@ -43,8 +43,9 @@ function Login(){
             if(validLogin){
                 isLoggedIn.value = true;
                 setShouldNavigate(true);
+                reqUsername = username;
             }
-            reqUsername = username;
+            
         // perform login action with username and password
     };
     const handlePasswordChange =(event) =>{
