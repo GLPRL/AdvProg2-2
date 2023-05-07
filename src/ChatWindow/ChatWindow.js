@@ -1,10 +1,11 @@
-import AddContactModal from "../AddContactModal/AddContactModal";
 import ChatApp from "./ChatApp/ChatApp"
 import {Link, Navigate} from "react-router-dom";
 import React from "react";
 import {isLoggedIn} from "../login/Login"
+import "../stylesheets/chatWindow.css"
+
+
 function ChatWindow() {
-    console.log(isLoggedIn.value);
     if(!isLoggedIn.value) {
         return(<Navigate to="/" />)
     }
@@ -20,8 +21,7 @@ function ChatWindow() {
             </head>
 
             <Link to="/" role="button" className="btn-sm btn-danger logoutbutton text">Logout</Link>
-            <ChatApp/>
-            <AddContactModal/>
+            <ChatApp />
         </>
     )
 }

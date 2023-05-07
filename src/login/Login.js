@@ -1,6 +1,10 @@
-import {Link, Navigate} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link, Routes, Navigate} from 'react-router-dom';
+
+import Register from './Register'; // Import the Register component
 import {useRef, useState} from "react";
 import {registerData} from './Register'
+import FormGroupLogin from "./FormGroupLogin";
+export var reqUsername;
 export const isLoggedIn = {value: false};
 function Login(){
     const usernameRef = useRef(null);
@@ -13,25 +17,35 @@ function Login(){
         let validLogin = true;
         const username = usernameRef.current.value;
         const password = passwordRef.current.value;
-        if(!registerData.validRegister){
-            passwordError.current.textContent='Wrong password';
-            usernameError.current.textContent='Wrong username';
-        }
-        else{
-            if(username != registerData.username){
+        const searchUser = registerData.find( item => item.username === username);
+            if (searchUser) {
+                const u = searchUser.username;
+                const p = searchUser.password;
+                if(username != u){
+                    usernameError.current.textContent='Wrong username';
+                    validLogin = false;
+                }
+                if(password != p){
+                    passwordError.current.textContent='Wrong password';
+                    validLogin = false;
+                }
+                if(validLogin){
+                    setShouldNavigate(true);
+                    isLoggedIn.value = true;
+                }
+            } else {
                 usernameError.current.textContent='Wrong username';
                 validLogin = false;
-            }
-            if(password != registerData.password){
                 passwordError.current.textContent='Wrong password';
                 validLogin = false;
             }
+
             if(validLogin){
                 isLoggedIn.value = true;
                 setShouldNavigate(true);
+                reqUsername = username;
             }
-        }
-
+            
         // perform login action with username and password
     };
     const handlePasswordChange =(event) =>{
@@ -45,6 +59,7 @@ function Login(){
     }
     isLoggedIn.value = false;
     return(
+
         <>
 
             <head>
@@ -63,20 +78,12 @@ function Login(){
             <div className="login">
                 <h1 className="margin5 text">Sign-in</h1>
                 <form onSubmit={handleSubmit}>
-                    <div className="form-group text">
-                        <label htmlFor="username">Username</label>
-                        <div className="place">
-                            <input  className="form-control" id="username" placeholder="Enter username"  onChange={handleUsernameChange}  ref={usernameRef}></input>
-                            <small className="text-danger" ref={usernameError}></small>
-                        </div>
-                    </div>
-                    <div className="form-group text">
-                        <label htmlFor="password">Password</label>
-                        <div className="place">
-                            <input type="password" className="form-control" id="password" placeholder="Enter password" onChange={handlePasswordChange} ref={passwordRef}></input>
-                            <small className="text-danger" ref={passwordError}></small>
-                        </div>
-                    </div>
+
+                    <FormGroupLogin label="Username" id="username" placeholder="Enter username" type="text" onChange={handleUsernameChange} inputRef={usernameRef} errorRef={usernameError}
+                    />
+                    <FormGroupLogin label="Password" id="password" placeholder="Enter password" type="password" onChange={handlePasswordChange} inputRef={passwordRef} errorRef={passwordError}
+                    />
+
                     <button type="submit" className="btn btn-info  text margin5">Log in</button>     <Link to="/register" className="btn btn-dark text" role="button">Sign Up</Link>
 
 

@@ -1,10 +1,15 @@
-import profilepic4 from "../../../../images/profilePic4.jpg";
+import {registerData} from "../../../../login/Register";
+import {reqUsername} from "../../../../login/Login"
+import React from "react";
 
 function UserTab() {
+    const user = registerData.find(user => user.username === reqUsername);
+    const image = user.image
+    console.log(image)
     return(
         <div className="userTab">
-            <img src={ profilepic4 } alt="" className="user-tab-left-image rounded-circle"></img>
-            <span className="userName userTopLeft">Me</span>
+            <img src={URL.createObjectURL(image)} alt="Profile Picture" className="user-tab-left-image rounded-circle" id="chooseImg"></img>
+            <span className="userName userTopLeft">{user.displayName}</span>
             <span><svg xmlns="http://www.w3.org/2000/svg" fill="white" className="addContact" viewBox="0 0 16 16"
                        data-toggle="modal" data-target="#exampleModal">
                 <path

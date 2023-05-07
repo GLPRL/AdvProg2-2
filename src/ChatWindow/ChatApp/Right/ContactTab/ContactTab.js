@@ -1,5 +1,5 @@
 import profilepic3 from "../../../../images/profilePic3.jpg";
-
+import '../../../../stylesheets/chatWindow.css'
 function ContactTab() {
     return(
         <div className="userTab">

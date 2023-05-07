@@ -1,6 +1,11 @@
-import {Link} from 'react-router-dom';
+
+import { BrowserRouter as Router, Route, Link, Routes  } from 'react-router-dom';
 import {Navigate} from 'react-router-dom';
 import React, { useState } from 'react';
+import profilePic from '../images/profilePic3.jpg';
+import Login from './Login'
+import FormGroupRegister from "./FormGroupRegister";
+import RegisterModal from "./RegisterModal";
 import {isLoggedIn} from './Login'
 export const registerData = [];
 function Register(){
@@ -12,6 +17,7 @@ function Register(){
     const [verifyError1, setVerifyError1]=useState('');
     const [username, setUsername]= useState('');
     const [usernameError, setUsernameError]= useState('');
+    const [usernameError2, setUsernameError2]= useState('');
     const [displayName, setDisplay]=useState('');
     const [displayError1, setDisplayError1]=useState('');
     const [displayError2, setDisplayError2]=useState('');
@@ -44,6 +50,10 @@ function Register(){
             setUsernameError('2-16 characters');
             validSubmission=0;
         }
+        if(registerData.find(item => item.username === username)){
+            setUsernameError2('username already in use')
+            validSubmission=0;
+        }
         if(displayName.length<2||displayName.length>16){
             setDisplayError1('2-16 in len');
             validSubmission=0;
@@ -57,15 +67,14 @@ function Register(){
             validSubmission =0;
         }
             if (validSubmission) {
-
-            registerData.username=username;
-            registerData.password=password;
-            registerData.displayName=displayName;
-            registerData.image=chooseImage;
-            registerData.validRegister=true;
-            setShouldNavigate(true);
-
-
+                registerData.push({
+                    username: username,
+                    password: password,
+                    displayName: displayName,
+                    image: chooseImage,
+                    validRegister: true
+                })
+                setShouldNavigate(true);
             }
     };
     const handleImage =(event) => {
@@ -85,6 +94,7 @@ function Register(){
     const handleUsername =(event) =>{
         setUsername(event.target.value);
         setUsernameError('');
+        setUsernameError2('');
     }
 
     const handleDisplay=(event)=>{
@@ -134,7 +144,6 @@ function Register(){
  return(
 
 <>
-
      <head>
          <title>Hello, world!</title>
              <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
@@ -183,7 +192,6 @@ function Register(){
                     {imageError && <small className="form-text text-danger">{imageError}</small> }
                 </div>
                 <div className="form-group">
-
                     {chooseImage &&  <div>Selected Image: <img src={URL.createObjectURL(chooseImage)} alt="Profile Picture" className="text-center marginLeft1" id="chooseImg" ></img></div>}
                 </div>
                 <div className="text-center">
@@ -192,8 +200,6 @@ function Register(){
                 </div>
             </form>
         </div>
-
-
 
         <br />
     </div>
