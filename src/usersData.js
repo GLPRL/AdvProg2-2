@@ -6,7 +6,7 @@ const usersData = [
         id: 1,
         name:"contact 1",
         messages : [
-            {text:"a message one" ,floatValue:"float-right"},
+            {text:"a message first" ,floatValue:"float-right"},
             {text:"a message one" ,floatValue:"float-right"},
             {text:"a kewer one" ,floatValue:"float-right"},
             {text:"a message one" ,floatValue:"float-right"},
@@ -23,7 +23,7 @@ const usersData = [
         id: 2,
         name:"contact 2",
         messages : [
-            {text:"a message one" ,floatValue:"float-right"},
+            {text:"a message tghre" ,floatValue:"float-right"},
             {text:"a  one" ,floatValue:"float-left"},
             {text:"a  one" ,floatValue:"float-right"},
             {text:"a  one" ,floatValue:"float-right"},

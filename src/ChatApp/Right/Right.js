@@ -3,6 +3,7 @@ import ChatMessages from "./ChatMessages/ChatMessages";
 import ChatInteraction from "./ChatInteraction/ChatInteraction";
 
 function Right(props) {
+    
     return(
         <div className="contactBox border-right col-8">
             <ContactTab />
