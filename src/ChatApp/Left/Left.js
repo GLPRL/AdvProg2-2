@@ -4,15 +4,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function Left(props) {
-    const [currentUser, setCurrentUser] = useState('');
-    useEffect(()=>{
-        console.log("noticed a change in usestate its now " + currentUser);
-    },[currentUser]);
-
     return(
         <div className="contactBox  col-sm-4">
             <UserTab />
-            <ContactsMenu setCurrentUser={setCurrentUser}/>
+            <ContactsMenu setCurrentUser={props.setCurrentUser}/>
         </div>
     );
 }
