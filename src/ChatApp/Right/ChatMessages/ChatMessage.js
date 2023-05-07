@@ -1,11 +1,11 @@
-function ChatMessage({msg, floatValue}) {
+function ChatMessage({message, floatValue}) {
     
     if (floatValue == "float-right") {
         const classN = ["bg-warning p-2 border rounded-pill shadow-lg mb-3", floatValue].join(' ');
         return( 
             <tr>
                 <td>
-                    <p className={classN} >{msg}</p>
+                    <p className={classN} >{message}</p>
                 </td>
             </tr>);
     } else {
@@ -13,7 +13,7 @@ function ChatMessage({msg, floatValue}) {
         return( 
             <tr>
                 <td>
-                    <p className={classN} >{msg}</p>
+                    <p className={classN} >{message}</p>
                 </td>
             </tr>);
     }

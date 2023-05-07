@@ -1,4 +1,4 @@
-import Contact from "./ChatApp/Left/ContactsMenu/ContactsList/Contact";
+
 
 
 const usersData = [

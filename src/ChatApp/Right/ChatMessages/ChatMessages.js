@@ -6,36 +6,36 @@ function ChatMessages(props) {
     const [currentMessages, setCurrentMessages] = useState([]);
     const [firstPrint, setfirstPrint] = useState(true);
 
+let messageArray = [];
 let msgsConvo;
 if (firstPrint) {
     setfirstPrint(false);
     msgsConvo = userData.find(item => {
         if (item.id === 1) {
-            item.messages.map((message,key) => {
-                console.log(message.text);
-                <ChatMessage msg={message.text} floatValue={message.floatValue} key={key}></ChatMessage>
-            }); 
+            messageArray = item.messages;
+            console.log(messageArray[1]);
         }});
 } else {
     msgsConvo = userData.find(item => {
         if (item.id === props.currentUser) {
-            item.messages.map((message,key) => {
-                console.log(message.text);
-                <ChatMessage msg={message.text} floatValue={message.floatValue} key={key}></ChatMessage>
-            }); 
+            messageArray = item.messages; 
         }});
 }
+
+const messageConversation = messageArray.map((message,key) => {
+    //console.log(message.text + " " + message.floatValue);
+<p className="bg-warning  p-2 border  rounded-pill  shadow-lg mb-3  float-right "> {message.text} </p>});
+
 
     return(
         <div className="msgScroll">
             <table className="table table-borderless ">
             <tbody>
-                {msgsConvo}
+                {messageConversation}
                 </tbody>
             </table>
         </div>
     );
-
-    
+  
 }
 export default ChatMessages;
