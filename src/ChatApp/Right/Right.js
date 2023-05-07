@@ -2,11 +2,11 @@ import ContactTab from "./ContactTab/ContactTab";
 import ChatMessages from "./ChatMessages/ChatMessages";
 import ChatInteraction from "./ChatInteraction/ChatInteraction";
 
-function Right() {
+function Right(props) {
     return(
         <div className="contactBox border-right col-8">
             <ContactTab />
-            <ChatMessages />
+            <ChatMessages currentUser={props.currentUser}/>
             <ChatInteraction />
         </div>
     );
