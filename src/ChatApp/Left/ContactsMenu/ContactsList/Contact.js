@@ -8,7 +8,7 @@ function Contact(props) {
     const [clientUsername, setClientUsername] = useState('');
 
     function handleContactClick() {
-        console.log("logged" + props.id)
+        props.setCurrentUser(props.id);
     }
 
 
