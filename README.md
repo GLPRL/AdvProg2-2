@@ -26,4 +26,7 @@ Each contact has a list of messages with the user.
 How to use:
 Download all of the files, extract them to a location of your choosing.
 **Everything must be in the same directory**
-Then, run the login.html page w/ double click
+
+Run 
+``` npm start ``` 
+to begin the server.
