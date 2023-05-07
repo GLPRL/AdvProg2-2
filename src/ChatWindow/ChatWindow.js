@@ -3,6 +3,7 @@ import {Link, Navigate} from "react-router-dom";
 import React from "react";
 import {isLoggedIn} from "../login/Login"
 import "../stylesheets/chatWindow.css"
+import AddContactModal from "../AddContactModal/AddContactModal";
 
 
 function ChatWindow() {
@@ -22,6 +23,7 @@ function ChatWindow() {
 
             <Link to="/" role="button" className="btn-sm btn-danger logoutbutton text">Logout</Link>
             <ChatApp />
+            <AddContactModal/>
         </>
     )
 }
