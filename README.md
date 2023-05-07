@@ -29,4 +29,4 @@ Download all of the files, extract them to a location of your choosing.
 
 Run 
 ``` npm start ``` 
-to begin the server.
+to start the server.
