@@ -33,7 +33,7 @@ function ModalFooter() {
         smallTD.innerText = now.toLocaleString();
         timeDate.appendChild(smallTD);
         timeDate.className += "td";
-        row.appendChild(timeDate);
+            row.appendChild(timeDate);
 
     }
 
