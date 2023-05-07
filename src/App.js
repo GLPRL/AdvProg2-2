@@ -1,5 +1,5 @@
 import './App.css';
-import './chatWindow.css';
+import './ChatWindow/ChatWindow';
 
 import ChatWindow from "./ChatWindow";
 function App() {

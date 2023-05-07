@@ -1,5 +1,5 @@
-import AddContactModal from "./AddContactModal/AddContactModal";
-import ChatApp from "./ChatApp/ChatApp";
+import AddContactModal from "../AddContactModal/AddContactModal";
+import ChatApp from "../ChatApp/ChatApp";
 
 function ChatWindow() {
     return(
