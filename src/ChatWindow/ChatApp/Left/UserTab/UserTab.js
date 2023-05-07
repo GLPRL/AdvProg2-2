@@ -5,7 +5,6 @@ import React from "react";
 function UserTab() {
     const user = registerData.find(user => user.username === reqUsername);
     const image = user.image
-    console.log(image)
     return(
         <div className="userTab">
             <img src={URL.createObjectURL(image)} alt="Profile Picture" className="user-tab-left-image rounded-circle" id="chooseImg"></img>

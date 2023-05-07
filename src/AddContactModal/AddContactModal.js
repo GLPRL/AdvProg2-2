@@ -4,8 +4,8 @@ import ModalHeader from "./ModalHeader/ModalHeader";
 
 function AddContactModal() {
     return (
-        <div className="modal fade text" id="exampleModal" tabIndex="-1" role="dialog"
-             aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <ModalHeader />
