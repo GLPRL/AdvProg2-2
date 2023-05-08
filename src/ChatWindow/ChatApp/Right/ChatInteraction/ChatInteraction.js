@@ -23,7 +23,6 @@ function ChatInteraction(props) {
         const newMsg = {text: content, floatValue: "float-right"};
         messageArray.push(newMsg);
         document.getElementById("outText").value = "";
-        const contactTime = document.getElementById("contactTime");
     }
     return(
         <div className="sendLine">
