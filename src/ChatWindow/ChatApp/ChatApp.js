@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 function ChatApp() {
     const [currentUser, setCurrentUser] = useState(1);
+    const [firstPrint, setfirstPrint] = useState(true);
     useEffect(()=>{
         console.log("noticed a change in usestate its now " + currentUser);
     },[currentUser]);
@@ -13,7 +14,7 @@ function ChatApp() {
     return (
         <div className="container content row no-gutters text">
             <Left setCurrentUser={setCurrentUser}/>
-            <Right currentUser={currentUser}/>
+            <Right currentUser={currentUser} firstPrint={firstPrint} setfirstPrint={setfirstPrint}/>
         </div>
     );
 }
