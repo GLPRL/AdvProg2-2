@@ -14,11 +14,9 @@ function ModalFooter(props) {
             return;
         }
         document.getElementById("modalInput").value = "";
-        const newContact = {id:props.idCount, name:inputValue, messages:[]};
+        const newContact = {id:props.idCount, name:inputValue,lastMsgTime:'', messages:[]};
         props.handleIdCount();
         const len = userData.push(newContact);
-        const now = new Date();
-        const date = now.toLocaleString();
     }
 
     return (

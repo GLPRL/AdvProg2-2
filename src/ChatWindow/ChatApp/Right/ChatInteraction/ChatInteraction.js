@@ -7,18 +7,23 @@ function ChatInteraction(props) {
         if (content === "") {
             return;
         }
+
+        const now = new Date();
+        const date = now.toLocaleString();
+        console.log(now);
+
         const msgsConvo = userData.find(item => {
             if (item.id === props.currentUser) {
                 messageArray = item.messages;
             }});
 
+        const currentUserIndex = userData.findIndex(item => item.id === props.currentUser)
+        userData[currentUserIndex].lastMsgTime = date;
+
         const newMsg = {text: content, floatValue: "float-right"};
         messageArray.push(newMsg);
         document.getElementById("outText").value = "";
-        const now = new Date();
-        const date = now.toLocaleString();
         const contactTime = document.getElementById("contactTime");
-        contactTime.innerText = date;
     }
     return(
         <div className="sendLine">
