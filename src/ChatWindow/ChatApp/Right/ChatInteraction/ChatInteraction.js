@@ -1,6 +1,9 @@
 import userData from "../../../../usersData";
 import React from "react";
+import { useState } from "react";
+
 function ChatInteraction(props) {
+
     function handleClick() {
         let messageArray = [];
         const content = document.getElementById("outText").value;
@@ -22,6 +25,7 @@ function ChatInteraction(props) {
         const newMsg = {text: content, floatValue: "float-right"};
         messageArray.push(newMsg);
         document.getElementById("outText").value = "";
+        props.msgChangeHandler();
     }
     return(
         <div className="sendLine">
