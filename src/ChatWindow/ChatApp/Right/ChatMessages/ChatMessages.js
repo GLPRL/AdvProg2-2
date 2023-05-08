@@ -6,14 +6,13 @@ function ChatMessages(props) {
 let messageArray = [];
 let msgsConvo;
 
-msgsConvo = userData.find(item => {
+    msgsConvo = userData.find(item => {
     if (item.id === props.currentUser) {
         messageArray = item.messages;
     }});
 
-
     return(
-        <div className="msgScroll">
+        <div className="msgScroll" id="msgScroll">
             <table className="table table-borderless ">
             <tbody>
             {messageArray.map((item) =>

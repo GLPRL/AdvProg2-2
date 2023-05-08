@@ -1,13 +1,12 @@
 import profilePic3 from '../../../../../images/profilePic3.jpg'
-import { useState } from 'react';
-
 
 function Contact(props) {
 
     function handleContactClick() {
         props.setCurrentUser(props.id);
+        const element = document.getElementById("msgScroll");
+        element.scrollTop = element.scrollHeight;
     }
-
 
     const contact =
     <>
@@ -15,13 +14,11 @@ function Contact(props) {
         <td>{props.name}</td>
         <td><small>{props.id}</small></td>
     </>
-
     return (
         <tr className="table-info" onClick={()=>handleContactClick(props.id)}>
         {contact}
         </tr>
     )
 }
-
 
 export default Contact;
