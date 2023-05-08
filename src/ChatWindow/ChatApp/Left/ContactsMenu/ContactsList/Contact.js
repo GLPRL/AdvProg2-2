@@ -4,9 +4,6 @@ import { useState } from 'react';
 
 function Contact(props) {
 
-
-    const [clientUsername, setClientUsername] = useState('');
-
     function handleContactClick() {
         props.setCurrentUser(props.id);
     }

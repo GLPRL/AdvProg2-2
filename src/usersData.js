@@ -40,18 +40,7 @@ const usersData = [
         id: 3,
         name:"contact 3",
         messages : [
-            {text:"a message one" ,floatValue:"float-right"},
-            {text:"a  one" ,floatValue:"float-left"},
-            {text:"a  one" ,floatValue:"float-right"},
-            {text:"a  one" ,floatValue:"float-right"},
-            {text:"a  one" ,floatValue:"float-left"},
-            {text:"a message rewrwe" ,floatValue:"float-left"},
-            {text:"a message " ,floatValue:"float-right"},
-            {text:"a rewrre " ,floatValue:"float-left"},
-            {text:"a message " ,floatValue:"float-left"},
-            {text:"a sdfsdfs " ,floatValue:"float-left"},
-            {text:"a message " ,floatValue:"float-left"},
-            {text:"a mesasdasdsage dsfsd" ,floatValue:"float-right"}]
+            ]
     }
     
 ]
