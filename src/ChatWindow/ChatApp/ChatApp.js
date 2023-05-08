@@ -1,6 +1,5 @@
 import Left from "./Left/Left";
 import Right from "./Right/Right";
-import usersData from "../../usersData";
 import { useState } from "react";
 import { useEffect } from "react";
 

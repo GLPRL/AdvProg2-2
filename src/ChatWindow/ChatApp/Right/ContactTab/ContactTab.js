@@ -3,8 +3,8 @@ import '../../../../stylesheets/chatWindow.css'
 function ContactTab() {
     return(
         <div className="userTab">
-            <img src= { profilepic3 } alt="" className="user-tab-right-image rounded-circle"></img>
-            <span className="userName userTopLeft">User Name</span>
+            <img src= { profilepic3 } alt="" className="user-tab-right-image rounded-circle" id="contactImage"></img>
+            <span className="userName userTopLeft" id="contactUser"></span>
         </div>
     );
 }

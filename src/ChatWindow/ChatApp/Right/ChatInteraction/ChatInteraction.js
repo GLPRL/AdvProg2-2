@@ -15,7 +15,10 @@ function ChatInteraction(props) {
         const newMsg = {text: content, floatValue: "float-right"};
         messageArray.push(newMsg);
         document.getElementById("outText").value = "";
-
+        const now = new Date();
+        const date = now.toLocaleString();
+        const contactTime = document.getElementById("contactTime");
+        contactTime.innerText = date;
     }
     return(
         <div className="sendLine">

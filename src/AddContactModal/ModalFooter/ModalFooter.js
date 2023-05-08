@@ -1,7 +1,5 @@
 import React from 'react';
-import monkey from '../../images/monkeyprofilepic.jpg'
 import userData from '../../usersData'
-import { useState } from 'react';
 
 function ModalFooter(props) {
 
@@ -12,12 +10,15 @@ function ModalFooter(props) {
         const inputValue = input.value.trim();
         if (!inputValue) {
             alert("Enter Valid User Information");
+            document.getElementById("modalInput").value = "";
             return;
         }
-
+        document.getElementById("modalInput").value = "";
         const newContact = {id:props.idCount, name:inputValue, messages:[]};
         props.handleIdCount();
         const len = userData.push(newContact);
+        const now = new Date();
+        const date = now.toLocaleString();
     }
 
     return (
