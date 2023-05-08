@@ -154,39 +154,10 @@ function Register(){
         <div className="login">
             <h1 className="margin5 text">Register</h1>
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="username">Username</label>
-                    <div className="placeregister">
-                        <input  className="form-control"  id="username" placeholder="Enter Username" value={username} onChange={handleUsername} />
-                        <small>Must be 2-16 characters</small>
-                        {usernameError && <small className="form-text text-danger">{usernameError}</small> }
-                    </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <div className="placeregister">
-                        <input type="password" className="form-control" id="password" placeholder="Enter Password" value={password} onChange={handlePasswordChange} />
-                        <small>Your password must be at least 8 characters long and contain at least one number and letter </small>
-                        {passwordError1 && <small className="form-text text-danger">{passwordError1}</small>}
-                        {passwordError2 && <small className="form-text text-danger">{passwordError2}</small>}
-                    </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Verify Password</label>
-                    <div className="placeregister">
-                        <input type="password" className="form-control" id="password-verify" placeholder="Verify Password" value={verifyPassword} onChange={handleVerify} />
-                        {verifyError1 && <small className="form-text text-danger">{verifyError1}</small> }
-                    </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="DisplayName">Display Name</label>
-                    <div className="placeregister">
-                        <input  className="form-control"  id="DisplayName" placeholder="Enter Display Name" value={displayName} onChange={handleDisplay} />
-                        <small>Only letters 2-16 in length</small>
-                        {displayError1 && <small className="form-text text-danger">{displayError1}</small> }
-                        {displayError2 && <small className="form-text text-danger">{displayError2}</small> }
-                    </div>
-                </div>
+                <FormGroupRegister label="Username" type="text" id="username" placeholder="Enter Username" value={username} onChange={handleUsername} error1={usernameError} error2={usernameError2} smallText="Must be 2-16 characters" />
+                <FormGroupRegister label="Password" type="password" id="password" placeholder="Enter Password" value={password} onChange={handlePasswordChange} error1={passwordError1} error2={passwordError2} smallText="Your password must be at least 8 characters long and contain at least one number and letter " />
+                <FormGroupRegister label="Verify Password" type="password" id="password-verify" placeholder="Verify Password" value={verifyPassword} onChange={handleVerify} error1={verifyError1} />
+                <FormGroupRegister label="Display Name" type="text" id="DisplayName" placeholder="Enter Display Name" value={displayName} onChange={handleDisplay} error1={displayError1}  error2={displayError2} smallText="Only letters 2-16 in length" />
                 <div className="form-group">
                     <small>Choose profile picture</small><input type="file" className="form-control-file" id="exampleFormControlFile1" onChange={handleImage} />
                     {imageError && <small className="form-text text-danger">{imageError}</small> }
@@ -195,7 +166,7 @@ function Register(){
                     {chooseImage &&  <div>Selected Image: <img src={URL.createObjectURL(chooseImage)} alt="Profile Picture" className="text-center marginLeft1" id="chooseImg" ></img></div>}
                 </div>
                 <div className="text-center">
-                        <button type="submit" className="btn btn-info marginRight">Register</button>
+                    <button type="submit" className="btn btn-info marginRight">Register</button>
                     <span className="txtsize"> Already registered? click <Link to="/" className="orangelink">here</Link></span>
                 </div>
             </form>
