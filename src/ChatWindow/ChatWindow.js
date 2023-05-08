@@ -4,9 +4,21 @@ import React from "react";
 import {isLoggedIn} from "../login/Login"
 import "../stylesheets/chatWindow.css"
 import AddContactModal from "../AddContactModal/AddContactModal";
-
+import { useState } from "react";
+import userData from "../usersData"
 
 function ChatWindow() {
+    const [idCount, setIdCount] = useState(0);
+
+    function handleIdCount() {
+        setIdCount(idCount + 1);
+    }
+
+    function onClickLogout() {
+        userData.splice(0,idCount);
+    }
+
+
     if(!isLoggedIn.value) {
         return(<Navigate to="/" />)
     }
@@ -21,9 +33,9 @@ function ChatWindow() {
                       href="/src/stylesheets/chatWindow.css"></link>
             </head>
 
-            <Link to="/" role="button" className="btn-sm btn-danger logoutbutton text">Logout</Link>
+            <Link to="/" role="button" className="btn-sm btn-danger logoutbutton text" onClick={onClickLogout}>Logout</Link>
             <ChatApp />
-            <AddContactModal/>
+            <AddContactModal idCount={idCount} handleIdCount={handleIdCount}/>
         </>
     )
 }
