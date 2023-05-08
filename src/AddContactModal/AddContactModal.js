@@ -2,7 +2,7 @@ import ModalFooter from "./ModalFooter/ModalFooter";
 import ModalBody from "./ModalBody/ModalBody";
 import ModalHeader from "./ModalHeader/ModalHeader";
 
-function AddContactModal() {
+function AddContactModal(props) {
     return (
         <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
@@ -10,7 +10,7 @@ function AddContactModal() {
                 <div className="modal-content">
                     <ModalHeader />
                     <ModalBody />
-                    <ModalFooter />
+                    <ModalFooter idCount={props.idCount} handleIdCount={props.handleIdCount}/>
                 </div>
             </div>
         </div>

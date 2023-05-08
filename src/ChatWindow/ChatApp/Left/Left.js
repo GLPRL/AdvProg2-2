@@ -6,7 +6,7 @@ import { useEffect } from "react";
 function Left(props) {
     return(
         <div className="contactBox  col-sm-4">
-            <UserTab />
+            <UserTab idCount={props.idCount}/>
             <ContactsMenu setCurrentUser={props.setCurrentUser}/>
         </div>
     );

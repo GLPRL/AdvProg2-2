@@ -1,6 +1,10 @@
 import React from 'react';
 import monkey from '../../images/monkeyprofilepic.jpg'
-function ModalFooter() {
+import userData from '../../usersData'
+import { useState } from 'react';
+
+function ModalFooter(props) {
+
     function handleClick() {
         const input = document.getElementById("modalInput");
         const table = document.getElementById("contactTable");
@@ -11,30 +15,9 @@ function ModalFooter() {
             return;
         }
 
-        const row = document.createElement("tr");
-        row.className += "table-info"
-        table.appendChild(row);
-
-        const picCell = document.createElement("td");
-        const pic = document.createElement("img");
-        pic.src = monkey;                                   //create image listing
-        picCell.appendChild(pic);
-        pic.className += "chat-profile-image rounded-circle";
-        row.appendChild(picCell);
-
-        const userName = document.createElement("td");
-        userName.innerHTML = inputValue;                //Create username listing
-        userName.className += "td"
-        row.appendChild(userName);
-
-        const timeDate = document.createElement("td");
-        const smallTD = document.createElement("small");
-        const now = new Date();                         //Create date listing
-        smallTD.innerText = now.toLocaleString();
-        timeDate.appendChild(smallTD);
-        timeDate.className += "td";
-            row.appendChild(timeDate);
-
+        const newContact = {id:props.idCount, name:inputValue, messages:[]};
+        props.handleIdCount();
+        const len = userData.push(newContact);
     }
 
     return (
