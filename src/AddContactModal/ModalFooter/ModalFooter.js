@@ -6,7 +6,6 @@ function ModalFooter(props) {
     function handleClick() {
         const input = document.getElementById("modalInput");
         const table = document.getElementById("contactTable");
-
         const inputValue = input.value.trim();
         if (!inputValue) {
             alert("Enter Valid User Information");
