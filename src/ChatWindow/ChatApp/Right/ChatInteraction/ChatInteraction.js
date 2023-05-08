@@ -7,7 +7,6 @@ function ChatInteraction(props) {
         if (content === "") {
             return;
         }
-
         const now = new Date();
         const date = now.toLocaleString();
         console.log(date);
