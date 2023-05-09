@@ -1,7 +1,5 @@
 import userData from "../../../../usersData";
 import React from "react";
-import { useState } from "react";
-
 function ChatInteraction(props) {
 
     function handleClick() {
@@ -20,6 +18,12 @@ function ChatInteraction(props) {
             }});
 
         const currentUserIndex = userData.findIndex(item => item.id === props.currentUser)
+        if (currentUserIndex < 0)
+        {
+            alert("Invalid user!");
+            document.getElementById("outText").value = "";
+            return;
+        }
         userData[currentUserIndex].lastMsgTime = date;
 
         const newMsg = {text: content, floatValue: "float-right"};
