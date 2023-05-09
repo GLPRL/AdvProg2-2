@@ -22,4 +22,4 @@ We used Bootstrap 5 as our technology to design the pages, content and visual ef
 How to use:
 Download all of the files, extract them to a location of your choosing.
 **Everything must be in the same directory**
-Then, run the login.html page w/ double click
+``` cd ``` into the location of the files, then run ``` npm start ```
