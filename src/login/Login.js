@@ -1,6 +1,4 @@
-import {BrowserRouter as Router, Route, Link, Routes, Navigate} from 'react-router-dom';
-
-import Register from './Register'; // Import the Register component
+import {Link, Navigate} from 'react-router-dom';
 import {useRef, useState} from "react";
 import {registerData} from './Register'
 import FormGroupLogin from "./FormGroupLogin";
@@ -39,7 +37,6 @@ function Login(){
                 passwordError.current.textContent='Wrong password';
                 validLogin = false;
             }
-
             if(validLogin){
                 isLoggedIn.value = true;
                 setShouldNavigate(true);
@@ -71,9 +68,6 @@ function Login(){
                             <title>Hello, world!</title>
             </head>
             <body>
-
-
-
         <div className="center logreg">
             <div className="login">
                 <h1 className="margin5 text">Sign-in</h1>
@@ -83,10 +77,7 @@ function Login(){
                     />
                     <FormGroupLogin label="Password" id="password" placeholder="Enter password" type="password" onChange={handlePasswordChange} inputRef={passwordRef} errorRef={passwordError}
                     />
-
                     <button type="submit" className="btn btn-info  text margin5">Log in</button>     <Link to="/register" className="btn btn-dark text" role="button">Sign Up</Link>
-
-
                 </form>
             </div>
             <br></br>

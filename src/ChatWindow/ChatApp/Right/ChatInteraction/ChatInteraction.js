@@ -1,7 +1,6 @@
 import userData from "../../../../usersData";
 import React from "react";
 function ChatInteraction(props) {
-
     function handleClick() {
         let messageArray = [];
         const content = document.getElementById("outText").value;
@@ -25,7 +24,6 @@ function ChatInteraction(props) {
             return;
         }
         userData[currentUserIndex].lastMsgTime = date;
-
         const newMsg = {text: content, floatValue: "float-right"};
         messageArray.push(newMsg);
         document.getElementById("outText").value = "";

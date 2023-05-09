@@ -1,5 +1,4 @@
 import ContactsList from "./ContactsList/ContactsList";
-
 function ContactsMenu(props) {
     return(
         <div className="contactScroll">
@@ -9,5 +8,4 @@ function ContactsMenu(props) {
         </div>
     );
 }
-
 export default ContactsMenu;

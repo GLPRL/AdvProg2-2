@@ -1,4 +1,3 @@
-
 function RegisterModal({ onClose }) {
     return (
         <div className="modal show modalRegister" tabIndex="-1" role="dialog">

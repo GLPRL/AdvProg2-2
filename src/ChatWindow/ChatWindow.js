@@ -6,7 +6,6 @@ import "../stylesheets/chatWindow.css"
 import AddContactModal from "../AddContactModal/AddContactModal";
 import { useState } from "react";
 import userData from "../usersData"
-
 function ChatWindow() {
     const [idCount, setIdCount] = useState(0);
 
@@ -17,8 +16,6 @@ function ChatWindow() {
     function onClickLogout() {
         userData.splice(0,idCount);
     }
-
-
     if(!isLoggedIn.value) {
         return(<Navigate to="/" />)
     }

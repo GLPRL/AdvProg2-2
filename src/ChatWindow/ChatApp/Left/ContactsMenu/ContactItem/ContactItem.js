@@ -1,6 +1,4 @@
-import ChatMessages from "../../../Right/ChatMessages/ChatMessages";
 function ContactItem({ profilePic, userName, lastMsgDate}) {
-
     return(
         <>
         <tr className="table-info">

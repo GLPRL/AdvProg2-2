@@ -1,7 +1,6 @@
 import ModalFooter from "./ModalFooter/ModalFooter";
 import ModalBody from "./ModalBody/ModalBody";
 import ModalHeader from "./ModalHeader/ModalHeader";
-
 function AddContactModal(props) {
     return (
         <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"

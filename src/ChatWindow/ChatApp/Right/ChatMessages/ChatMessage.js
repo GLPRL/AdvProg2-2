@@ -1,5 +1,4 @@
 function ChatMessage({message, floatValue}) {
-    
     if (floatValue == "float-right") {
         const classN = ["bg-warning p-2 border rounded-pill shadow-lg mb-3", floatValue].join(' ');
         return( 
@@ -17,9 +16,5 @@ function ChatMessage({message, floatValue}) {
                 </td>
             </tr>);
     }
-
-    
-    
 }
-
 export default ChatMessage;

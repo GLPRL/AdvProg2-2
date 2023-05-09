@@ -2,10 +2,8 @@ import React from 'react';
 import userData from '../../usersData'
 
 function ModalFooter(props) {
-
     function handleClick() {
         const input = document.getElementById("modalInput");
-        const table = document.getElementById("contactTable");
         const inputValue = input.value.trim();
         if (!inputValue) {
             alert("Enter Valid User Information");
@@ -17,7 +15,6 @@ function ModalFooter(props) {
         props.handleIdCount();
         const len = userData.push(newContact);
     }
-
     return (
         <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>

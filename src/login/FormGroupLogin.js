@@ -1,4 +1,3 @@
-
 function FormGroupLogin ({ label, id, placeholder, type, onChange, inputRef, errorRef }){
     return (
         <div className="form-group text">

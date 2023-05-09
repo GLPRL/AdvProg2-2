@@ -1,5 +1,4 @@
 import React from 'react';
-
 const FormGroupRegister = ({ label, type, id, placeholder, value, onChange, error1,error2, smallText }) => {
     return (
         <div className="form-group">
@@ -13,5 +12,4 @@ const FormGroupRegister = ({ label, type, id, placeholder, value, onChange, erro
         </div>
     );
 };
-
 export default FormGroupRegister;

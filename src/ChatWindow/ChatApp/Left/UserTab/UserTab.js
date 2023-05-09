@@ -1,7 +1,6 @@
 import {registerData} from "../../../../login/Register";
 import {reqUsername} from "../../../../login/Login"
 import React from "react";
-
 function UserTab() {
     const user = registerData.find(user => user.username === reqUsername);
     const image = user.image

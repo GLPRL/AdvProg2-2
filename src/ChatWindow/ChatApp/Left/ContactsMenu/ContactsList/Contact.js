@@ -1,6 +1,5 @@
 import profilePic3 from '../../../../../images/profilePic3.jpg'
 function Contact(props) {
-
     function handleContactClick() {
         props.setCurrentUser(props.id);
         const element = document.getElementById("msgScroll");
@@ -8,9 +7,6 @@ function Contact(props) {
         var contactName = document.getElementById("contactUser");
         contactName.innerHTML = props.name;
     }
-    //const now = new Date();                         //Create date listing
-    //const date = now.toLocaleString();
-
     const contact =
     <>
         <td><img src={ profilePic3 } alt="" className="chat-profile-image rounded-circle"></img></td>
@@ -23,5 +19,4 @@ function Contact(props) {
         </tr>
     )
 }
-
 export default Contact;
