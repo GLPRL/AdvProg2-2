@@ -1,4 +1,5 @@
 import profilePic3 from '../../../../../images/profilePic3.jpg'
+
 function Contact(props) {
     function handleContactClick() {
         props.setCurrentUser(props.id);
