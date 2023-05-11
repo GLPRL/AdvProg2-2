@@ -7,10 +7,12 @@ function Contact(props) {
         element.scrollTop = element.scrollHeight;
         var contactName = document.getElementById("contactUser");
         contactName.innerHTML = props.name;
+        var contactImage = document.getElementById("contactImage");
+        contactImage.src = props.image;
     }
     const contact =
     <>
-        <td><img src={ profilePic3 } alt="" className="chat-profile-image rounded-circle"></img></td>
+        <td><img src={ props.image } alt="" className="chat-profile-image rounded-circle"></img></td>
         <td>{props.name}</td>
         <td><small>{props.lastMsgTime}</small></td>
     </>
