@@ -15,14 +15,12 @@
     margin:5%;
     color:black;
 }
-
 .messagesWindow {
     height: 84%;
     background-image: url('../images/Screenshot_4.jpg');
     background-size: 70%;
     border-radius: 5px;
 }
-
 .userMessage {
     float: right;
     position: absolute;
@@ -64,7 +62,6 @@
     margin: 2%;
     color: white;
 }
-
 .addContact {
     margin-top: 10px;
     margin-right: 7px;
@@ -76,7 +73,6 @@
 .addContact:hover{
     fill: #fda643;
 }
-
 .contacts{
     background-color: #fba25dCA;
     border-style:solid;
@@ -106,7 +102,6 @@
     height: 50px;
     border-radius: 25px;
 }
-
 .profilePictureSpecial{
     margin-left:1vh;
     margin-top:1vh;
@@ -115,7 +110,6 @@
     max-height: 75%;
     object-fit: cover;
 }
-
 .logoutbutton{
     margin-top:1px;
     margin-right:1px;
@@ -148,36 +142,39 @@
     text-overflow: ellipsis;
 
 }
-
 #text {
     font-family: optima, sans-serif;
 }
 body{
     background-image: url("../images/background.jpg");
 }
-
-
 .contactScroll{
     overflow-y: scroll;
-
     height:91%;
     width: 99.9%;
 }
 .chat-profile-image{
+    text-align: center;
     margin-top: 7px;
     height: 40px;
     width: 40px;
+}
+.chat-profile-name {
+    padding-top: 24px !important;
+}
+.chat-date {
+    padding-top: 24px !important;
 }
 .msgScroll{
     overflow-y: scroll;
     height: 84%;
     background-image: url('../images/Screenshot_4.jpg');
     background-size: 70%;
+    border-radius: 10px;
 }
 .sendLine{
     height: 7%;
 }
-
 .user-tab-right-image{
     margin-top: 7px;
     height: 40px;
@@ -185,7 +182,7 @@ body{
     margin-left: 2%;
 }
 .user-tab-left-image{
-    margin-top: 3px;
+    margin-top: 0.3vh;
     height: 30px;
     width: 30px;
     margin-left: 3.5%;
