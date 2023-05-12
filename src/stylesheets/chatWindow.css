@@ -182,8 +182,8 @@ body{
     margin-left: 2%;
 }
 .user-tab-left-image{
-    margin-top: 0.3vh;
-    height: 30px;
-    width: 30px;
+    margin-top: 7px !important;
+    height: 40px !important;
+    width: 40px !important;
     margin-left: 3.5%;
 }
