@@ -9,7 +9,6 @@ function ChatInteraction(props) {
         }
         const now = new Date();
         const date = now.toLocaleString();
-        console.log(date);
 
         const msgsConvo = userData.find(item => {
             if (item.id === props.currentUser) {

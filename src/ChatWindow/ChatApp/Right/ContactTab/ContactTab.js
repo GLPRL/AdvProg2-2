@@ -1,9 +1,11 @@
-import profilepic3 from "../../../../images/profilePic3.jpg";
 import '../../../../stylesheets/chatWindow.css'
+import pic from  '../../../../images/default.jpg'
+import {registerData} from "../../../../login/Register";
+import {reqUsername} from "../../../../login/Login";
 function ContactTab() {
     return(
         <div className="userTab">
-            <img src= { profilepic3 } alt="" className="user-tab-right-image rounded-circle" id="contactImage"></img>
+            <img src= {pic} alt="" className="user-tab-right-image rounded-circle" id="contactImage"></img>
             <span className="userName userTopLeft" id="contactUser"></span>
         </div>
     );
